@@ -1,5 +1,10 @@
-﻿# Path to your CSV file (change as needed or make it a parameter)
-$csvFile = "D:\KRISTIAN\powershell_scripts\NAMESHEET.csv"
+#This SAcript is designed to connect to a csv spreadsheet that reads the entry of the firstr textbox you fill out and compares it to column A of the spreadsheet looking for a match. 
+#If there's a match then it will store the content of column B on the same row where the match was found and store that as the $Org variable.
+#It will do that same thing with column D and E respectively to create the $Dept variable
+#Finaly it reads your serial number and grabs the last 6 digits and generates a hostname for your Organization.
+#
+# Path to your CSV file (change as needed or make it a parameter)
+$csvFile = "D:\User\FilePath"
 
 # Check if the CSV file exists
 if (-not (Test-Path $csvFile -PathType Leaf)) {
@@ -99,4 +104,5 @@ $finalString = "$Org - $Dept - $Serial"
 
 Write-Host "`nResult:" -ForegroundColor Cyan
 Write-Host $finalString -ForegroundColor White -BackgroundColor DarkBlue
+
 Write-Host ""
